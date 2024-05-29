@@ -396,3 +396,15 @@ FodyWeavers.xsd
 
 # JetBrains Rider
 *.sln.iml
+.idea/
+
+# Mac
+*.DS_Store
+
+# vim swap files
+*.sw?
+
+# FIX stuff
+log/
+store/
+
