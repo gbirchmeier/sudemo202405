@@ -64,6 +64,7 @@
       <field name='Text' required='N'/>
       <field name='EncodedTextLen' required='N'/>
       <field name='EncodedText' required='N'/>
+      <field name='SessionStatus' required='N'/>
     </message>
     <message msgcat='admin' msgtype='A' name='Logon'>
       <field name='EncryptMethod' required='Y'/>
@@ -76,8 +77,10 @@
       <field name='TestMessageIndicator' required='N'/>
       <field name='Username' required='N'/>
       <field name='Password' required='N'/>
+      <field name='NewPassword' required='N'/>
       <field name='DefaultApplVerID' required='Y'/>
       <component name='MsgTypeGrp' required='N'/>
+      <field name='SessionStatus' required='N'/>
     </message>
   </messages>
   <components>
@@ -293,6 +296,7 @@
     <field name='HopSendingTime' number='629' type='UTCTIMESTAMP'/>
     <field name='HopRefID' number='630' type='SEQNUM'/>
     <field name='NextExpectedMsgSeqNum' number='789' type='SEQNUM'/>
+    <field name='NewPassword' number='925' type='STRING'/>
     <field name='ApplVerID' number='1128' type='STRING'>
       <value description='FIX27' enum='0'/>
       <value description='FIX30' enum='1'/>
@@ -309,5 +313,16 @@
     <field name='RefApplVerID' number='1130' type='STRING'/>
     <field name='RefCstmApplVerID' number='1131' type='STRING'/>
     <field name='DefaultApplVerID' number='1137' type='STRING'/>
+    <field name='SessionStatus' number='1409' type='INT'>
+      <value enum='0' description='SESSION_ACTIVE' />
+      <value enum='1' description='SESSION_PASSWORD_CHANGED' />
+      <value enum='2' description='SESSION_PASSWORD_DUE_TO_EXPIRE' />
+      <value enum='3' description='NEW_SESSION_PASSWORD_DOES_NOT_COMPLY_WITH_POLICY' />
+      <value enum='4' description='SESSION_LOGOUT_COMPLETE' />
+      <value enum='5' description='INVALID_USERNAME_OR_PASSWORD' />
+      <value enum='6' description='ACCOUNT_LOCKED' />
+      <value enum='7' description='LOGONS_ARE_NOT_ALLOWED_AT_THIS_TIME' />
+      <value enum='8' description='PASSWORD_EXPIRED' />
+    </field>
   </fields>
 </fix>

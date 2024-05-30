@@ -5,10 +5,11 @@ namespace Server;
 static class Program
 {
     [STAThread]
-    static void Main(string[] args) {
+    static void Main(string[] args)
+    {
         if (args.Length != 1) {
             Console.WriteLine("usage: dotnet run CONFIG_FILENAME");
-            System.Environment.Exit(2);
+            Environment.Exit(2);
         }
 
         try {
