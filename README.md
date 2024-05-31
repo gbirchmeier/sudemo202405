@@ -15,7 +15,7 @@ dotnet run ../../cfg/server.cfg
 
 Takes one "scenario" parameter.  The client will start, run the scenario, and shut down.
 
-* It has `ResetOnLogon=Y` so it always starts at 1.  (I don't think I need to explain this.)
+* It has `ResetOnLogon=Y` so it always starts at 1.  (Same reasons as your app, of course.)
 * `HeartBtInt` is 10 seconds
 
 ```
