@@ -28,6 +28,12 @@ static class Program
             initiator.Start();
             myApp.Run();
             initiator.Stop();
+
+            if (scenario == "3") {
+                initiator.Start();
+                myApp.Run();
+                initiator.Stop();
+            }
         }
         catch (Exception e)
         {

@@ -23,7 +23,7 @@ public class ServerApp : MessageCracker, IApplication
 
     public void FromAdmin(Message message, SessionID sessionId) {
         if (message.Header.GetString(Tags.MsgType) == MsgType.LOGON) {
-            if (message.GetString(Tags.Password) == "LLL") {
+            if (message.IsSetField(Tags.Password) && message.GetString(Tags.Password) == "LLL") {
                 if (message.IsSetField(Tags.NewPassword)) {
                     _logonState = LogonState.PwChanged;
                     Console.WriteLine(">>> Detected scenario 1b: Password change");
@@ -32,6 +32,8 @@ public class ServerApp : MessageCracker, IApplication
                     Console.WriteLine(">>> Detected scenario 1a: Password expired");
                     throw new RejectLogon("Password Expired");
                 }
+            } else {
+                Console.WriteLine(">>> Logon received.  Unknown scenario (but probably 3).");
             }
         }
     }

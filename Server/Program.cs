@@ -20,6 +20,7 @@ static class Program
             ThreadedSocketAcceptor acceptor = new ThreadedSocketAcceptor(myApp, storeFactory, settings, logFactory);
 
             acceptor.Start();
+            Console.WriteLine("Acceptor is waiting for clients.");
             Console.WriteLine("press <enter> to quit");
             Console.Read();
             acceptor.Stop();
